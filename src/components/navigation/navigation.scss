@@ -1,0 +1,52 @@
+@import 'utils/colors';
+@import 'utils/media-queries';
+
+.component-navigation {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex: 1 0 auto;
+    padding: 80px 0;
+    position: relative;
+    z-index: -2;
+
+    .slide__navigation {
+    	color: $white;
+        margin: 0 20px;
+
+    	h2,
+    	h3 {
+    		margin: 0;
+    	}
+
+    	.navigation__subtitle {
+			font-family: 'Neue Haas Grotesk';
+    		font-size: 20px;
+    	}
+    	.navigation__title {
+    		font-size: 40px;
+    	}
+    	.navigation__image {
+    		display: none;
+    	}
+
+    	.btn {
+    		&__label {
+    			color: $white;
+    		}
+	    	&__underline {
+	    		background-color: $white;
+	    	}
+    	}
+    }
+}
+
+@include sm {
+    .component-navigation {
+        .slide__navigation {
+            .navigation__title {
+                font-size: 50px;
+            }
+        }
+    }
+}

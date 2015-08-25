@@ -1,0 +1,29 @@
+$breakpoints: (
+    xs: 0em,
+    sm: 45em,
+    md: 64em,
+);
+
+@mixin mq ($mq) {
+    @media all and (min-width: #{map-get($breakpoints, $mq)}) {
+        @content;
+    }
+}
+
+@mixin xs () {
+    @include mq ('xs') {
+        @content;
+    }
+}
+
+@mixin sm () {
+    @include mq ('sm') {
+        @content;
+    }
+}
+
+@mixin md () {
+     @include mq ('md') {
+        @content;
+    }
+}

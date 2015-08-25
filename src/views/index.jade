@@ -1,0 +1,119 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title Portfolio
+        meta(name='description' content='')
+        meta(name='keywords' content='')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+        //- link(rel='stylesheet' href='/static/app.bundle.css')
+
+    body
+        .component-slider.container-fluid(data-component='Slider')
+            each project, index in projects
+                .component-slide(data-dynamic-color='#{project.color}' data-component='Slide')
+                    .component-header.slide__header.row.center-xs.middle-xs(data-component='Header')
+                        .col-xs-12.col-sm-6
+                            h2.header__title= project.content.title
+                        .col-xs-12.col-sm-6
+                            p.header__aside= project.content.excerpt
+
+                    .slide__content
+                        .content__main
+                            .slide__preview.row
+                                .preview__media.col-xs-12.col-sm-4
+                                .preview__media.col-xs-12.col-sm-4
+                                .preview__media.col-xs-12.col-sm-4
+
+                            .slide__description.row
+                                .slide__links.col-xs-12.col-sm-6.col-sm-offset-3.col-md-3.col-md-offset-3(data-appearance)
+                                    each link in project.content.links
+                                        .component-link.component-link--block.component-link--heavy(data-component='Link')
+                                            a(href='#{link.url}')= link.title
+
+                                .slide__details.col-xs-12.col-sm-6.col-sm-offset-3.col-md-6.col-md-offset-0
+                                    p.details__description(data-appearance)= project.content.description
+                                    each detail in project.content.details
+                                        p.details__detail(data-appearance)
+                                            strong
+                                                | #{detail.title}
+                                                | &ndash; 
+                                            | !{detail.text}
+
+                            .slide__meta.row
+                                .meta__informations(class='col-xs-6 col-sm-' + ((1 - Number(3 % project.content.meta.credits.length)) * 3 || 4) + ' col-sm-offset-' + (Number(project.content.meta.credits.length === 1) * 3) + ' col-md-3 col-md-offset-' + (6 - ((project.content.meta.credits.length - 1) * 3)))
+                                    each information in project.content.meta.informations
+                                        .meta__line(data-appearance)
+                                            h3= information.title
+                                            p !{information.text}
+
+                                each credit in project.content.meta.credits
+                                    .meta__credit(class='col-xs-6 col-sm-' + ((1 - Number(3 % project.content.meta.credits.length)) * 3 || 4) + ' col-md-3')
+                                        each person in credit
+                                            .meta__line(data-appearance)
+                                                h3= person.name
+                                                p !{person.role}
+                                                    if person.website
+                                                        br
+                                                        span.component-link(data-component='Link')
+                                                            a(href='#{person.website.url}')= person.website.title
+
+                        .component-navigation(data-component='Navigation')
+                            .slide__navigation.row.col-xs
+                                .navigation__next.col-sm-6.col-sm-offset-6
+                                    h3.navigation__subtitle Next project
+                                    h2.navigation__title
+                                        .component-button
+                                            .btn= projects[(index + 1) % projects.length].content.title
+                                                span.btn__label= projects[(index + 1) % projects.length].content.title
+                                                span.btn__underline
+                                    .navigation__image
+                                        img(src='#{projects[(index + 1) % projects.length].navigation}')
+
+                    .component-background(data-component='Background')
+                        img(src='#{project.cover}')
+
+        .component-stage(data-component='Stage')
+            canvas
+
+        .floating-elements
+            .component-shadow
+                .shadow.shadow--top
+
+            .component-more(data-component='More')
+                .component-button
+                    .btn See more
+                        each project in projects
+                            span.btn__label See more
+                        span.btn__underline
+
+            .component-close.component-close--centered(data-component='Close')
+                .component-button
+                    .btn
+                        | Close
+                        span.btn__label Close
+                        span.btn__underline
+
+        .component-about(data-component='About')
+            .about__open
+                p Ouvrir
+
+            .about__overlay
+                .overlay__content
+                    .content__main.row.top-xs.middle-md
+                        .content__picture.col-xs-12.col-md-5.col-md-offset-1
+                                img(src='/static/media/sylvain-reucherand.jpg')
+                        .content__description.col-xs-12.col-md-5
+                                h2.description__title= about.title
+                                each paragraph in about.paragraphs
+                                    p.description__paragraph !{paragraph.text}
+
+            .about__close
+                .component-close(data-component='Close')
+                    .component-button
+                        .btn
+                            | Close
+                            span.btn__label Close
+                            span.btn__underline
+
+    script(src='/static/app.bundle.js')

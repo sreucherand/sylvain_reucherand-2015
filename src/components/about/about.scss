@@ -1,0 +1,102 @@
+@import 'utils/colors';
+@import 'utils/media-queries';
+
+.component-about {
+	// display: none;
+	left: 0;
+	height: 100%;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+
+	.about__open,
+	.about__close {
+		left: 40px;
+		pointer-events: auto;
+		position: absolute;
+		top: 40px;
+	}
+
+	.about__overlay {
+		height: 100%;
+		left: 0;
+		padding: 20px;
+		padding-top: 100px;
+		pointer-events: auto;
+		position: absolute;
+		top: -100%;
+		width: 100%;
+
+		.overlay__content {
+			background-color: $ultra-light-grey;
+			height: 100%;
+			overflow: hidden;
+			overflow-y: auto;
+			margin: 0;
+			padding: 20px;
+			width: 100%;
+
+    		-webkit-overflow-scrolling: touch;
+
+    		.content__main {
+    			height: 100%;
+    			margin: 0 auto;
+
+    			.content__picture {
+					padding: 0;
+					margin-bottom: 30px;
+
+					div {
+						padding: 0;
+					}
+				}
+
+				.content__description {
+					padding: 0;
+					text-align: left;
+
+					div {
+						padding: 0;
+					}
+
+					.description__title {
+						font-family: 'Neue Haas Grotesk';
+	    				font-size: 28px;
+	    				line-height: 36px;
+					}
+					.description__paragraph {
+						line-height: 24px;
+					}
+				}
+    		}
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@include md () {
+	.component-about {
+		.about__overlay {
+			padding-top: 20px;
+
+			.overlay__content {
+				.content__main {
+					max-width: 1024px;
+
+					.content__picture {
+						margin-bottom: 0;
+						padding-right: 30px;
+					}
+					.content__description {
+						padding-left: 30px;
+					}
+				}
+			}
+		}
+	}
+}

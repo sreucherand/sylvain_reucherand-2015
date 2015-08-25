@@ -1,0 +1,31 @@
+@import 'utils/colors';
+@import 'utils/timing-functions';
+
+.component-button {
+	.btn {
+		color: transparent;
+		cursor: pointer;
+		display: inline-block;
+		font-family: 'Neue Haas Grotesk';
+		position: relative;
+
+		span {
+			display: inline-block;
+			bottom: 0;
+			position: absolute;
+			left: 0;
+		}
+
+		.btn__label {
+			bottom: 2px;
+			z-index: 1;
+		}
+		.btn__underline {
+			background: $black;
+			height: 50%;
+			opacity: 0.2;
+			width: 100%;
+			z-index: 0;
+		}
+	}
+}	

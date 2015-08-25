@@ -1,0 +1,15 @@
+.component-close {
+	&--centered {
+		position: absolute;
+		left: 50%;
+		top: 50px;
+
+		.btn {
+			margin-left: -50%;
+		}
+	}
+
+	.btn {
+        font-size: 20px;
+	}
+}

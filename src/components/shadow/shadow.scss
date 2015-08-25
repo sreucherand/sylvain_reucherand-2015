@@ -1,0 +1,14 @@
+.component-shadow {
+    .shadow {
+        left: 0;
+        pointer-events: none;
+        position: fixed;
+        width: 100%;
+
+        &--top {
+            background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            height: 300px;
+            top: 0;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import 'utils/colors';
+@import 'utils/timing-functions';
+
+a,
+.component-link {
+    display: inline-block;
+    line-height: 1.5em;
+    position: relative;
+    text-decoration: none;
+
+    &--block {
+        display: block;
+    }
+
+    &--heavy {
+    	font-family: 'Neue Haas Grotesk';
+    	font-weight: 700;
+    }
+
+    .link {
+        display: inline-block;
+        position: relative;
+
+        .link__underline {
+            background-color: $black;
+            bottom: 0;
+            content: '';
+            display: inline-block;
+            left: 0;
+            height: 50%;
+            opacity: 0.2;
+            position: absolute;
+            transform-origin: center bottom;
+            transition: all 700ms $ease-out-expo;
+            width: 100%;
+            z-index: -1;
+        }
+        
+        &:hover .link__underline {
+            opacity: 1;
+            transform: scaleY(0.2) translateY(5px);
+        }
+    }
+    
+}
