@@ -4,7 +4,6 @@ import chroma from 'chroma-js'
 import rebound from 'rebound'
 import css from 'dom-css'
 import on from 'dom-event'
-import key from 'key-event'
 import select from 'dom-select'
 
 import DOMComponent from '../dom-component/dom-component'
@@ -36,38 +35,27 @@ export default class About extends DOMComponent {
 		super.init()
 
 		this.close.on('press', () => this.hide())
-
 		on(this.openBtn, 'click', () => this.show())
 
 		this.spring.addListener({
             onSpringUpdate: (spring) => this.springUpdate(spring)
         })
-	}
 
-	initKeyboardEvents () {
-		key.on(window, 'esc', this.hide)
-	}
-
-	removeKeyboardEvents () {
-		key.off(window, 'esc', this.hide)
+		this.on('esc', this.hide)
 	}
 
 	show () {
-		this.initKeyboardEvents()
+		this.focus()
 		this.spring.setEndValue(1)
 
 		this.close.show()
-
-		this.trigger('show')
 	}
 
 	hide () {
-		this.removeKeyboardEvents()
+		this.sleep()
 		this.spring.setEndValue(0)
 
 		this.close.hide()
-
-		this.trigger('hide')
 	}
 
 	springUpdate (spring) {

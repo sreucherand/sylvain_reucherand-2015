@@ -1,3 +1,5 @@
+import keys from '../utils/keys'
+
 export default class Component {
 
     constructor () {
@@ -13,6 +15,14 @@ export default class Component {
     }
 
     load () {}
+
+    focus () {
+        keys.add(this)
+    }
+
+    sleep () {
+        keys.remove(this)
+    }
 
     addChild (child) {
         if (child instanceof Component) {

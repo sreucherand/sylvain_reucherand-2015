@@ -1,8 +1,8 @@
 @import 'utils/colors';
 @import 'utils/media-queries';
+@import 'utils/timing-functions';
 
 .component-about {
-	// display: none;
 	left: 0;
 	height: 100%;
 	pointer-events: none;
@@ -68,6 +68,31 @@
 					}
 					.description__paragraph {
 						line-height: 24px;
+					}
+					.description__socials {
+						a {
+							display: block;
+							float: left;
+							height: 15px;
+							margin-right: 15px;
+							transition: transform 1s $ease-out-expo;
+							width: 20px;
+
+							svg {
+								fill: $black;
+							}
+
+							&:hover {
+								transform: translateY(-5px);
+							}
+						}
+
+						&:after {
+							content: '';
+							display: block;
+							clear: both;
+							float: none;
+						}
 					}
 				}
     		}

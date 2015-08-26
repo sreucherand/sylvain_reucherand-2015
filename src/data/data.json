@@ -1,12 +1,13 @@
 {
     "about": {
+        "open": "I'm Sylvain Reucherand,<br>an interactive developer<br>looking for a job in<br>Copenhagen.",
         "title": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer.",
         "paragraphs": [
             {
                 "text": "I'm freshly graduated from Gobelins, l'École de l'Image, in Paris – France. <strong>I'm currently looking for a job in Copenhagen.</strong> I always try to bring something different, unique on projects I work on, enhance navigation experience using UI animations and motion design applied to development. I keep attention to details."
             },
             {
-                "text": "I work mostly with javascript, object-oriented programming, modular approach and reusable code."
+                "text": "I work mostly with javascript, object-oriented programming, modular approach and reusable code. You can check some of my work on my GitHub and my experiments on CodePen. Let's keep in touch !"
             }
         ]
     },

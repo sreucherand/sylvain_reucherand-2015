@@ -9,7 +9,7 @@ import 'TweenLite'
 import 'EasePack'
 
 import './button/button.scss'
-import './shadow/shadow.scss'//!!
+import './shadow/shadow.scss'
 import './stage/stage.scss'
 
 import About from './about/about'
@@ -59,9 +59,6 @@ class App {
 
         this.about.init()
         this.slider.init()
-
-        this.about.on('show', () => this.slider.removeKeyboardEvents())
-        this.about.on('hide', () => this.slider.initKeyboardEvents())
     }
 
 }
@@ -70,4 +67,10 @@ window.onload = function () {
     new App()
 
     FastClick.attach(document.body)
+}
+
+console.log('%cHold on! You\'re looking for a interactive developer? I\'m looking for a job in Copenhagen. %c--> %chireMe()', 'color: #2c3e50; font-size: 16px; font-weight: bold', 'color: #000000; font-size: 14px; font-weight: bold', 'color: #d35400; font-size: 16px; font-weight: bold')
+
+window.hireMe = function () {
+    window.location = 'mailto:hello@sylvainreucherand.fr'
 }

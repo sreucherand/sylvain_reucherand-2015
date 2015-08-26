@@ -5,7 +5,6 @@ import select from 'dom-select'
 
 import CanvasComponent from '../canvas-component/canvas-component'
 import DOMComponent from '../dom-component/dom-component'
-import raf from '../utils/raf'
 import viewport from '../utils/viewport'
 
 export default class Background extends DOMComponent {

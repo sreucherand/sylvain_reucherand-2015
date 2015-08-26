@@ -7,7 +7,6 @@ import css from 'dom-css'
 import hidden from 'hidden'
 import on from 'dom-event'
 import {off} from 'dom-event'
-import key from 'key-event'
 import select from 'dom-select'
 
 import CanvasComponent from '../canvas-component/canvas-component'
@@ -67,9 +66,11 @@ export default class Slide extends DOMComponent {
 
 		this.spring = springSystem.createSpring(40, 10)
 
+		this.shadow = new CanvasComponent()
         this.stage = new CanvasComponent()
 
         this.stage.addLayer(this.background.stage)
+        this.stage.addLayer(this.shadow)
         this.stage.addLayer(this.navigation.stage)
 
         this.previous = this.previous.bind(this)
@@ -105,23 +106,13 @@ export default class Slide extends DOMComponent {
             onSpringAtRest: (spring) => this.springComplete(spring)
         })
 
+		this.on('esc', this.close)
+		this.on('left', this.previous)
+		this.on('right', this.next)
+		this.on('down', this.scrollDown)
+		this.on('up', this.scrollUp)
+
         hidden(this.content.element, true)
-	}
-
-	initKeyboardEvents () {
-		key.on(window, 'esc', this.close)
-		key.on(window, 'left', this.previous)
-		key.on(window, 'right', this.next)
-		key.on(window, 'down', this.scrollDown)
-		key.on(window, 'up', this.scrollUp)
-	}
-
-	removeKeyboardEvents () {
-		key.off(window, 'esc', this.close)
-		key.off(window, 'left', this.previous)
-		key.off(window, 'right', this.next)
-		key.off(window, 'down', this.scrollDown)
-		key.off(window, 'up', this.scrollUp)
 	}
 
 	highlight () {
@@ -135,7 +126,7 @@ export default class Slide extends DOMComponent {
 	}
 
 	open () {
-		this.initKeyboardEvents()
+		this.focus()
 		this.background.show()
 
 		for (let element of this.elements) {
@@ -151,28 +142,28 @@ export default class Slide extends DOMComponent {
 
 		on(this.element, 'scroll', this.handleScroll)
 
-        css(this.element, 'overflow-y', 'hidden')
-
 		this.trigger('open')
 	}
 
 	close (force) {
-		this.removeKeyboardEvents()
+		this.sleep()
 		this.background.hide()
 		this.header.close()
 		this.spring.setEndValue(0)
+
+        css(this.element, 'overflow-y', 'hidden')
 
 		this.trigger('close', force)
 	}
 
 	previous () {
-		this.close()
+		this.close(true)
 
 		this.callbacks.push(() => this.trigger('previous'))
 	}
 
 	next () {
-		this.close()
+		this.close(true)
 
 		this.callbacks.push(() => this.trigger('next'))
 	}
@@ -186,34 +177,32 @@ export default class Slide extends DOMComponent {
 	}
 
 	handleScroll () {
-		if (this.elements.length === this.done.length) {
-			return
-		}
+		if (this.elements.length !== this.done.length) {
+			if (this.md.mobile()) {
+				for (let element of this.elements) {
+					element.opacity = 1
+					element.render()
 
-		if (this.md.mobile()) {
-			for (let element of this.elements) {
-				element.opacity = 1
-				element.render()
+					this.done.push(element)
+				}
+			} else {
+				for (let element of this.elements) {
+					if (element.opacity === 0 && this.queue.concat(this.done).indexOf(element) === -1) {
+						element.calc()
 
-				this.done.push(element)
-			}
-		} else {
-			for (let element of this.elements) {
-				if (element.opacity === 0 && this.queue.concat(this.done).indexOf(element) === -1) {
-					element.calc()
-
-					if (viewport.isElementVisible(element)) {
-						this.queue.push(element)
+						if (viewport.isElementVisible(element)) {
+							this.queue.push(element)
+						}
 					}
 				}
 			}
-		}
 
-		if (this.elements.length === this.done.length) {
-			off(this.element, 'scroll', this.handleScroll)
-		}
+			if (this.elements.length === this.done.length) {
+				off(this.element, 'scroll', this.handleScroll)
+			}
 
-		this.process()
+			this.process()
+		}
 	}
 
 	process () {
@@ -267,6 +256,9 @@ export default class Slide extends DOMComponent {
         hidden(this.content.element, !progress)
 
 		this.handleScroll()
+
+		this.shadow.render()
+		this.shadow.drawGradient(this.colorReference, this.spring.getCurrentValue())
 
         this.render()
     }

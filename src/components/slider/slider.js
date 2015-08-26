@@ -4,7 +4,6 @@ import Hammer from 'hammerjs'
 import rebound from 'rebound'
 import clamp from 'mout/math/clamp'
 import css from 'dom-css'
-import key from 'key-event'
 import hidden from 'hidden'
 import select from 'dom-select'
 
@@ -27,6 +26,7 @@ export default class Slider extends DOMComponent {
         this.slides = Array.from(select.all('[data-component="Slide"]', this.element))
         this.slides = this.slides.map(slide => new Slide(slide))
 
+        this.currentSlide = this.slides[0]
         this.center = 0
         this.velocity = 0
 
@@ -37,8 +37,8 @@ export default class Slider extends DOMComponent {
         this.more.colors = this.slides.map(slide => slide.colorReference)
 
         this.more.on('press', () => this.openCurrentSlide())
-        this.more.on('mouseenter', () => this.slides[this.currentIndex].highlight())
-        this.more.on('mouseleave', () => this.slides[this.currentIndex].release())
+        this.more.on('mouseenter', () => this.currentSlide.highlight())
+        this.more.on('mouseleave', () => this.currentSlide.release())
 
         this.stage = new CanvasComponent(select('[data-component="Stage"] canvas'))
 
@@ -74,21 +74,13 @@ export default class Slider extends DOMComponent {
             slide.on('close', (force) => this.handleClose(force))
         }
 
-        this.initKeyboardEvents()
+        this.focus()
         this.initGestureManager()
         this.springUpdate(this.spring, true)
-    }
 
-    initKeyboardEvents () {
-        key.on(window, 'down', this.openCurrentSlide)
-        key.on(window, 'left', this.goToPreviousSlide)
-        key.on(window, 'right', this.goToNextSlide)
-    }
-
-    removeKeyboardEvents () {
-        key.off(window, 'down', this.openCurrentSlide)
-        key.off(window, 'left', this.goToPreviousSlide)
-        key.off(window, 'right', this.goToNextSlide)
+        this.on('down', this.openCurrentSlide)
+        this.on('left', this.goToPreviousSlide)
+        this.on('right', this.goToNextSlide)
     }
 
     initGestureManager () {
@@ -106,11 +98,11 @@ export default class Slider extends DOMComponent {
     }
 
     openCurrentSlide () {
-        this.slides[this.currentIndex].open()
+        this.currentSlide.open()
     }
 
     closeCurrentSlide(evt) {
-        this.slides[this.currentIndex].close(true)
+        this.currentSlide.close()
     }
 
     goToPreviousSlide () {
@@ -122,7 +114,7 @@ export default class Slider extends DOMComponent {
     }
 
     goToSlideAtIndex (index) {
-        this.slides[this.currentIndex].release()
+        this.currentSlide.release()
 
         this.currentIndex = index
 
@@ -130,10 +122,10 @@ export default class Slider extends DOMComponent {
     }
 
     handleOpen () {
-        this.removeKeyboardEvents()
+        this.sleep()
         this.removeGestureManager()
 
-        this.close.color = this.slides[this.currentIndex].colorReference
+        this.close.color = this.currentSlide.colorReference
         this.close.show()
         this.more.hide()
     }
@@ -141,8 +133,8 @@ export default class Slider extends DOMComponent {
     handleClose (force) {
         this.close.hide()
 
-        if (force) {
-            this.initKeyboardEvents()
+        if (!force) {
+            this.focus()
             this.initGestureManager()
 
             this.more.show()
@@ -260,6 +252,7 @@ export default class Slider extends DOMComponent {
 
     set currentIndex (index) {
         this._currentIndex = clamp(index, 0, this.slides.length - 1)
+        this.currentSlide = this.slides[this._currentIndex]
     }
 
 }

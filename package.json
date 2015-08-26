@@ -38,7 +38,7 @@
     "hammerjs": "^2.0.4",
     "hidden": "git+https://github.com/sreucherand/hidden.git",
     "json-loader": "^0.5.2",
-    "key-event": "0.0.0",
+    "keynames": "0.0.0",
     "mobile-detect": "^1.2.1",
     "mout": "^0.11.0",
     "node-libs-browser": "^0.5.2",

@@ -52,6 +52,19 @@ export default class CanvasComponent extends Component {
         this.trigger('draw')
     }
 
+    drawGradient (color, progress) {
+        let height = 800
+        let gradient = this.context.createLinearGradient(0, this.canvas.height - height * progress, 0, this.canvas.height + height * (1 - progress))
+
+        gradient.addColorStop(0, color.alpha(0).css())
+        gradient.addColorStop(1, color.alpha(0.7).css())
+
+        this.context.fillStyle = gradient
+        this.context.fillRect(0, this.canvas.height - height * progress, this.canvas.width, 800)
+
+        this.trigger('draw')
+    }
+
     render () {
         super.render()
 

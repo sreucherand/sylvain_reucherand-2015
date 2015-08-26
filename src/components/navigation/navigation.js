@@ -8,7 +8,6 @@ import {vec3} from 'gl-matrix'
 
 import CanvasComponent from '../canvas-component/canvas-component'
 import DOMComponent from '../dom-component/dom-component'
-// import Shadow from '../shadow/shadow'
 
 export default class Navigation extends DOMComponent {
 
@@ -17,7 +16,6 @@ export default class Navigation extends DOMComponent {
 
 		const springSystem = new rebound.SpringSystem()
 
-        // this.shadow = new Shadow(select('[data-component="Shadow"]', this.element))
         this.image = new DOMComponent(select('.navigation__image img', this.element))
         this.subtitle = new DOMComponent(select('.navigation__subtitle', this.element))
         this.title = new DOMComponent(select('.navigation__title', this.element))
@@ -35,7 +33,6 @@ export default class Navigation extends DOMComponent {
         this.handleMouseLeave = this.handleMouseLeave.bind(this)
 
         this.addChild(this.label)
-        // this.addChild(this.shadow)
         this.addChild(this.stage)
         this.addChild(this.subtitle)
         this.addChild(this.title)
