@@ -14,14 +14,14 @@ export default class Background extends DOMComponent {
 
         const springSystem = new rebound.SpringSystem()
 
+		this.image = new DOMComponent(select('img', this.element))
         this.stage = new CanvasComponent()
 
-		this.image = select('img', this.element)
+		this.spring = springSystem.createSpring(40, 10)
 
 		this.render = this.render.bind(this)
 
-		this.spring = springSystem.createSpring(40, 10)
-        
+		this.addEntry(this.image.element)
         this.addChild(this.stage)
 	}
 
@@ -58,7 +58,7 @@ export default class Background extends DOMComponent {
 	render () {
 		super.render()
 
-		this.stage.draw(this.image)
+		this.stage.draw(this.image.element)
 	}
 
 }

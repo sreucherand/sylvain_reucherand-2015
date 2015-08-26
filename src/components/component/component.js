@@ -14,14 +14,16 @@ export default class Component {
         }
     }
 
-    load () {}
-
     focus () {
         keys.add(this)
     }
 
     sleep () {
         keys.remove(this)
+    }
+
+    addEntry (media) {
+        this.manifest.push(media)
     }
 
     addChild (child) {
@@ -61,5 +63,19 @@ export default class Component {
     }
 
     render () {}
+
+    get manifest () {
+        let manifest = this._manifest
+
+        for (let child of this.children) {
+            manifest = manifest.concat(child.manifest)
+        }
+
+        return manifest
+    }
+
+    set manifest (manifest) {
+        this._manifest = manifest
+    }
 
 }

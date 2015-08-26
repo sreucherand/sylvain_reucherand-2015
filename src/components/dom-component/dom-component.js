@@ -27,17 +27,18 @@ export default class DOMComponent extends Component {
         this.size = vec2.create()
 
         this.spring = springSystem.createSpring(40, 10)
-        this.spring.addListener({
-            onSpringUpdate: (spring) => this.springUpdate(spring)
-        })
-
-        viewport.on('resize', () => this.resize())
     }
 
     init () {
         super.init()
+        
+        this.spring.addListener({
+            onSpringUpdate: (spring) => this.springUpdate(spring)
+        })
 
         this.calc()
+
+        viewport.on('resize', () => this.resize())
     }
 
     calc () {

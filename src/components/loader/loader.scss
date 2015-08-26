@@ -1,0 +1,22 @@
+@import 'utils/colors';
+
+.component-loader {
+	background-color: $white;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 200;
+
+	.loader__image {
+		left: 50%;
+		position: absolute;
+		top: 50%;
+
+		img {
+			margin-left: -50%;
+			margin-top: -50%;
+		}
+	}
+}

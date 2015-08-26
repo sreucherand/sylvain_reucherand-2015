@@ -20,7 +20,6 @@ export default class Header extends DOMComponent {
 		this.colors = [this.aside.color.hex(), chroma('white'), this.aside.color.hex()]
 
 		this.spring = springSystem.createSpring(40, 10)
-        
 
         this.addChild(this.aside)
         this.addChild(this.title)

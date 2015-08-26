@@ -14,12 +14,12 @@ import DOMComponent from '../dom-component/dom-component'
 
 export default class More extends DOMComponent {
 
-	constructor (element) {
+	constructor (element, colors) {
 		super(element)
 
 		const springSystem = new rebound.SpringSystem()
 
-		this.colors = []
+		this.colors = colors || []
 		this.progress = 0
 		this.btn = select('.btn', this.element)
 		this.labels = select.all('.btn__label', this.element)

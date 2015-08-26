@@ -19,6 +19,7 @@ export default class About extends DOMComponent {
 
 		this.openBtn = select('.about__open', this.element)
 		this.close = new Close(select('[data-component="Close"]', this.element))
+		this.image = new DOMComponent(select('img', this.element))
 		this.overlay = new DOMComponent(select('.about__overlay', this.element))
 
 		this.backgroundColor = chroma('white').alpha(0)
@@ -28,6 +29,7 @@ export default class About extends DOMComponent {
 
 		this.hide = this.hide.bind(this)
 
+		this.addEntry(this.image.element)
 		this.addChild(this.close)
 	}
 
@@ -62,6 +64,10 @@ export default class About extends DOMComponent {
 		let progress = spring.getCurrentValue()
 
 		this.backgroundColor = chroma.scale(this.colors).domain([0, 1])(progress)
+
+		this.overlay.opacity = Math.pow(progress, 4)
+		this.overlay.scale[0] = 0.5 + progress / 2
+		this.overlay.scale[1] = 0.5 + progress / 2
 		this.overlay.translation[1] = progress * viewport.height
 
 		this.render()

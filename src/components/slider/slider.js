@@ -31,22 +31,11 @@ export default class Slider extends DOMComponent {
         this.velocity = 0
 
         this.close = new Close(select('[data-component="Close"]'))
-        this.close.on('press', () => this.closeCurrentSlide())
-
-        this.more = new More(select('[data-component="More"]'))
-        this.more.colors = this.slides.map(slide => slide.colorReference)
-
-        this.more.on('press', () => this.openCurrentSlide())
-        this.more.on('mouseenter', () => this.currentSlide.highlight())
-        this.more.on('mouseleave', () => this.currentSlide.release())
+        this.more = new More(select('[data-component="More"]'), this.slides.map(slide => slide.colorReference))
 
         this.stage = new CanvasComponent(select('[data-component="Stage"] canvas'))
 
         this.spring = springSystem.createSpring(4.5, 5.7)
-        this.spring.addListener({
-            onSpringUpdate: (spring) => this.springUpdate(spring),
-            onSpringAtRest: (spring) => this.springComplete(spring)
-        })
         
         for (let slide of this.slides) {
             this.addChild(slide)
@@ -65,6 +54,12 @@ export default class Slider extends DOMComponent {
     init () {
         super.init()
 
+        this.close.on('press', () => this.closeCurrentSlide())
+
+        this.more.on('press', () => this.openCurrentSlide())
+        this.more.on('mouseenter', () => this.currentSlide.highlight())
+        this.more.on('mouseleave', () => this.currentSlide.release())
+
         for (let slide of this.slides) {
             this.stage.addLayer(slide.stage)
 
@@ -73,6 +68,11 @@ export default class Slider extends DOMComponent {
             slide.on('open', () => this.handleOpen())
             slide.on('close', (force) => this.handleClose(force))
         }
+
+        this.spring.addListener({
+            onSpringUpdate: (spring) => this.springUpdate(spring),
+            onSpringAtRest: (spring) => this.springComplete(spring)
+        })
 
         this.focus()
         this.initGestureManager()

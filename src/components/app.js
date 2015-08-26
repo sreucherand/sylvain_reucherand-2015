@@ -13,6 +13,7 @@ import './shadow/shadow.scss'
 import './stage/stage.scss'
 
 import About from './about/about'
+import Loader from './loader/loader'
 import Slider from './slider/slider'
 
 import select from 'dom-select'
@@ -24,38 +25,37 @@ class App {
     constructor () {
         TweenLite.defaultEase = Expo.easeOut
 
-        this.about = new About(select('[data-component="About"]')) 
+        this.about = new About(select('[data-component="About"]'))
+        this.loader = new Loader(select('[data-component="Loader"]'))
         this.slider = new Slider(select('[data-component="Slider"]'))
 
-        this.load().then(() => this.init())
+        this.loader.load().then(() => {
+            this.load().then(() => this.init())
+        })
     }
 
     load () {
+        let manifest = []
         let promises = []
 
+        manifest = manifest.concat(this.about.manifest)
+        manifest = manifest.concat(this.slider.manifest)
 
-
-
-        // let manifest = []
-        // let promises = []
-
-        // this.components.forEach(component => {
-        //     manifest = manifest.concat(component.getManifest())
-        // })
-
-        // manifest.forEach(src => {
-        //     promises.push(new Promise((resolve, reject) => {
-        //         let image = new Image()
-        //         image.onload = resolve
-        //         image.src = src
-        //     }))
-        // })
+        for (let entry of manifest) {
+            promises.push(new Promise((resolve, reject) => {
+                let image = new Image()
+                image.onload = resolve
+                image.src = entry.src
+            }))
+        }
 
         return Promise.all(promises)
     }
 
     init () {
         console.log('app:init')
+
+        this.loader.hide()
 
         this.about.init()
         this.slider.init()
