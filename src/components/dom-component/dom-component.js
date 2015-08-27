@@ -7,6 +7,7 @@ import {vec2} from 'gl-matrix'
 import {vec3} from 'gl-matrix'
 
 import Component from '../component/component'
+import viewport from '../utils/viewport'
 
 export default class DOMComponent extends Component {
 
@@ -27,6 +28,8 @@ export default class DOMComponent extends Component {
         this.size = vec2.create()
 
         this.spring = springSystem.createSpring(40, 10)
+
+        viewport.on('resize', () => this.resize())
     }
 
     init () {
@@ -37,8 +40,6 @@ export default class DOMComponent extends Component {
         })
 
         this.calc()
-
-        viewport.on('resize', () => this.resize())
     }
 
     calc () {
