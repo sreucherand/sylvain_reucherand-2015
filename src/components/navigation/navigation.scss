@@ -33,9 +33,13 @@
     	.btn {
     		&__label {
     			color: $white;
+                bottom: 2px;
+                position: absolute;
+                left: 0;
     		}
 	    	&__underline {
 	    		background-color: $white;
+                opacity: 0.2;
 	    	}
     	}
     }

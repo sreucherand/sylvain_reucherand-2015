@@ -43,7 +43,6 @@ module.exports = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                drop_console: true,
                 pure_funcs: ['console.log']
             }
         }),

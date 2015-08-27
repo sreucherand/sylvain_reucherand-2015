@@ -12,34 +12,6 @@
 
     -webkit-overflow-scrolling: touch;
 
-    .slide__header {
-        align-content: center;
-        height: 100%;
-        margin: 0 auto;
-        max-width: 320px;
-        pointer-events: none;
-
-        .header__title {
-            font-size: 75px;
-            line-height: 75px;
-            margin: 0;
-            margin-bottom: 20px;
-            position: relative;
-            text-align: left;
-            z-index: 1;
-        }
-
-        .header__aside {
-            color: $light-grey;
-            font-family: 'Neue Haas Grotesk';
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 26px;
-            margin: 0;
-            text-align: left;
-        }
-    }
-
     .slide__content {
         display: flex;
         flex-flow: column nowrap;
@@ -111,24 +83,6 @@
 
 @include sm {
     .component-slide {
-        .slide__header {
-            max-width: 640px;
-
-            .header__title {
-                font-size: 150px;
-                line-height: 150px;
-                margin-bottom: 50px;
-                margin-top: -50px;
-            }
-
-            .header__aside {
-                font-size: 28px;
-                line-height: 36px;
-                margin-bottom: -100px;
-                margin-top: 100px;
-            }
-        }
-
         .slide__meta {
             font-size: 12px;
             line-height: 18px;

@@ -4,12 +4,13 @@
 	background-color: $white;
 	height: 100%;
 	left: 0;
-	position: fixed;
+	overflow: hidden;
+	position: absolute;
 	top: 0;
 	width: 100%;
 	z-index: 200;
 
-	.loader__image {
+	.loader__content {
 		left: 50%;
 		position: absolute;
 		top: 50%;

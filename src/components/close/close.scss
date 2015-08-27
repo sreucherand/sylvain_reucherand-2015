@@ -11,5 +11,14 @@
 
 	.btn {
         font-size: 20px;
+
+		.btn__label {
+			bottom: 2px;
+			position: absolute;
+			left: 0;
+		}
+		.btn__underline {
+			opacity: 0.2;
+		}
 	}
 }

@@ -1,16 +1,16 @@
-import './close.scss'
+import './open.scss'
 
+import clamp from 'mout/math/clamp'
+import MobileDetect from 'mobile-detect'
 import rebound from 'rebound'
-import css from 'dom-css'
 import hidden from 'hidden'
 import on from 'dom-event'
 import {off} from 'dom-event'
 import select from 'dom-select'
-import {vec2} from 'gl-matrix'
 
 import DOMComponent from '../dom-component/dom-component'
 
-export default class Close extends DOMComponent {
+export default class Open extends DOMComponent {
 
 	constructor (element) {
 		super(element)
@@ -18,10 +18,33 @@ export default class Close extends DOMComponent {
 		const springSystem = new rebound.SpringSystem()
 
 		this.btn = select('.btn', this.element)
-		this.label = select('.btn__label', this.element)
-		this.underline = select('.btn__underline', this.element)
 
-		this.offset = vec2.create()
+		this.labels = []
+        this.md = new MobileDetect(window.navigator.userAgent)
+
+		let rows = this.btn.innerHTML.split('<br>')
+
+		this.btn.innerHTML = ''
+
+		for (let string of rows) {
+			let row = document.createElement('div')
+			let label = document.createElement('span')
+			let underline = document.createElement('span')
+
+			row.className = 'btn__row'
+
+			label.innerText = string
+			label.className = 'btn__label'
+
+			underline.className = 'btn__underline'
+
+			row.appendChild(label)
+			row.appendChild(underline)
+
+			this.btn.appendChild(row)
+
+			this.labels.push(new DOMComponent(label))
+		}
 
 		this.bouncySpring = springSystem.createSpring(10, 3)
 		this.parabolicSpring = springSystem.createSpring(40, 10)
@@ -43,6 +66,8 @@ export default class Close extends DOMComponent {
         this.parabolicSpring.addListener({
             onSpringUpdate: (spring) => this.parabolicSpringUpdate(spring)
         })
+
+        this.show()
 	}
 
 	initMouseEvents () {
@@ -58,12 +83,12 @@ export default class Close extends DOMComponent {
 	}
 
 	show () {
-        this.initMouseEvents()
+		this.initMouseEvents()
 
-        this.bouncySpring.setCurrentValue(0)
+		this.bouncySpring.setCurrentValue(0)
 		this.bouncySpring.setEndValue(2)
 
-        this.parabolicSpring.setCurrentValue(0)
+		this.parabolicSpring.setCurrentValue(0)
 		this.parabolicSpring.setEndValue(1)
 	}
 
@@ -71,25 +96,35 @@ export default class Close extends DOMComponent {
 		this.removeMouseEvents()
 
 		this.bouncySpring.setEndValue(4)
-		this.parabolicSpring.setEndValue(2)
+		this.parabolicSpring.setEndValue(3)
 	}
 
 	handleMouseClick (evt) {
+		this.hide()
+
 		this.trigger('press')
 	}
 
 	handleMouseEnter (evt) {
 		this.bouncySpring.setEndValue(3)
+		this.parabolicSpring.setEndValue(2)
+
+		this.trigger('mouseenter', evt)
 	}
 
 	handleMouseLeave (evt) {
 		this.bouncySpring.setEndValue(2)
+		this.parabolicSpring.setEndValue(1)
+
+		this.trigger('mouseleave', evt)
 	}
 
 	bouncySpringUpdate (spring) {
 		let progress = spring.getCurrentValue()
 
-		this.offset[1] = (((progress - 2) * (1 + Math.pow(progress - 2, 2))) / 2) * -15
+		for (let label of this.labels) {
+			label.offset[1] = (((progress - 2) * (1 + Math.pow(progress - 2, 2))) / 2) * -10
+		}
 
 		this.render()
 	}
@@ -97,19 +132,25 @@ export default class Close extends DOMComponent {
 	parabolicSpringUpdate (spring) {
 		let progress = spring.getCurrentValue()
 
-		this.opacity = (Math.cos(Math.PI * (progress + 1)) + 1) / 2
+		for (let label of this.labels) {
+			if (this.md.mobile()) {
+				label.opacity = clamp(progress, 0, 1)
+			} else {
+				label.opacity = clamp(progress - 1, 0, 1)
+			}
+		}
+
+		this.opacity = clamp(-0.5 * Math.pow(progress, 2) + 1.5 * progress, 0, 1)
 
 		this.render()
 	}
 
-	render () {
+	render () {
 		super.render()
 
-		css(this.label, {
-			color: this.color.hex(),
-			transform: `translate3d(0, ${this.offset[1]}px, 0)`
-		})
-		css(this.underline, 'background-color', this.color.hex())
+		for (let label of this.labels) {
+			label.render()
+		}
 
 		hidden(this.element, this.opacity === 0)
 	}

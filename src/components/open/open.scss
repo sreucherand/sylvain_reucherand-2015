@@ -1,0 +1,31 @@
+@import 'utils/colors';
+@import 'utils/media-queries';
+
+.component-open {
+	.btn {
+		color: $light-grey;
+
+		&__row {
+			display: table;
+			margin-bottom: 5px;
+			position: relative;
+		}
+		&__label {
+			position: relative;
+		}
+		&__underline {
+			background-color: $thin-grey;
+			opacity: 1;
+		}
+	}
+}
+
+@include sm () {
+	.component-open {
+		.btn {
+			&__row {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

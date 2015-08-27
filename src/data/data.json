@@ -19,11 +19,11 @@
             "navigation": "/static/media/reuters_navigation.jpg",
             "content": {
                 "title": "Reuters Wider",
-                "excerpt": "Wider is a prototype mobile application developped as part of a one month workshop.",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "excerpt": "Discover Reuters Wider, a brand new mobile application as a new way to read the news.",
+                "description": "Wider is a prototype mobile application developped as part of a one month workshop at Gobelins – l'École de l'Image, in collaboration with the Thomson Reuters Foundation.",
                 "details": [
                     {
-                        "title": "Objective",
+                        "title": "Purpose",
                         "text": "Imagine an interactive scenario in order to promote the content et the actions carried by the Thomson Reuters Foundation on its website <a href=\"http://www.trust.org\">http://www.trust.org</a>. Aim the digital natives, enlarge the audience with an adapted editorial approach, more entertaining, more immersive, and bring the people to invest the subject."
                     },
                     {
@@ -34,10 +34,6 @@
                 "links": [
                     {
                         "title": "More on my Github",
-                        "url": "https://github.com/sreucherand/reuters-wider"
-                    },
-                    {
-                        "title": "Visit the website",
                         "url": "https://github.com/sreucherand/reuters-wider"
                     }
                 ],
@@ -66,25 +62,21 @@
                                 "name": "Clément Bardon",
                                 "role": "Creative concept<br>iOS development",
                                 "website": {
-                                    "title": "www.clementbardon.com",
-                                    "url": "http://www.clementbardon.com"
+                                    "title": "clement.ninja",
+                                    "url": "http://clement.ninja"
                                 }
                             },
                             {
                                 "name": "Marthe Siestrunck",
                                 "role": "Creative concept<br>Interactive design",
                                 "website": {
-                                    "title": "www.marthesiestrunck.com",
-                                    "url": "http://www.marthesiestrunck.com"
+                                    "title": "marthesiestrunck.fr",
+                                    "url": "http://marthesiestrunck.fr"
                                 }
                             },
                             {
                                 "name": "Benjamin Vimont",
-                                "role": "Creative concept<br>Interactive design",
-                                "website": {
-                                    "title": "www.benjaminvimont.com",
-                                    "url": "http://www.benjaminvimont.com"
-                                }
+                                "role": "Creative concept<br>Interactive design"
                             }
                         ]
                     ]
@@ -102,12 +94,8 @@
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 "details": [
                     {
-                        "title": "Objective",
+                        "title": "Purpose",
                         "text": "Imagine an interactive scenario in order to promote the content et the actions carried by the Thomson Reuters Foundation on its website <a href=\"http://www.trust.org\">http://www.trust.org</a>. Aim the digital natives, enlarge the audience with an adapted editorial approach, more entertaining, more immersive, and bring the people to invest the subject."
-                    },
-                    {
-                        "title": "Solution",
-                        "text": "A more visual, organized, simple, immersive mobile application."
                     }
                 ],
                 "links": [
@@ -151,11 +139,7 @@
                             },
                             {
                                 "name": "Anthony Meric",
-                                "role": "Creative concept<br>Motion design<br>3D",
-                                "website": {
-                                    "title": "www.anthonymeric.com",
-                                    "url": "http://www.anthonymeric.com"
-                                }
+                                "role": "Creative concept<br>Motion design<br>3D"
                             }
                         ]
                     ]
@@ -183,7 +167,7 @@
                 ],
                 "links": [
                     {
-                        "title": "More on my Github",
+                        "title": "Visit the website",
                         "url": "https://github.com/sreucherand/reuters-wider"
                     }
                 ],
@@ -191,41 +175,113 @@
                     "informations": [
                         {
                             "title": "My role",
-                            "text": "Creative concept<br>Interactive development"
+                            "text": "Creative concept<br>Creative development<br>Film direction<br>Product design"
                         },
                         {
                             "title": "Year",
-                            "text": "2014"
-                        },
-                        {
-                            "title": "Client",
-                            "text": "Givenchy"
+                            "text": "2015"
                         },
                         {
                             "title": "Context",
-                            "text": "Publicis Modem"
+                            "text": "Gobelins – l'École de l'Image"
                         }
                     ],
                     "credits": [
                         [
                             {
-                                "name": "Julien Rault",
-                                "role": "Creative concept<br>Interactive direction"
-                            },
-                            {
-                                "name": "Cécile Le Breton",
-                                "role": "Creative concept<br>Art direction"
-                            },
-                            {
-                                "name": "Efflam Daniel",
-                                "role": "Creative concept<br>Lead creative development"
-                            },
-                            {
-                                "name": "Anthony Meric",
-                                "role": "Creative concept<br>Motion design<br>3D",
+                                "name": "Julie Muckensturm",
+                                "role": "Creative concept<br>Art direction<br>Interactive design<br>Film direction",
                                 "website": {
-                                    "title": "www.anthonymeric.com",
-                                    "url": "http://www.anthonymeric.com"
+                                    "title": "iamjulie.cool",
+                                    "url": "http://iamjulie.cool"
+                                }
+                            },
+                            {
+                                "name": "Antonin Langlade",
+                                "role": "Creative concept<br>Interative development<br>Acting<br>Sound supervision",
+                                "website": {
+                                    "title": "antoninlanglade.fr",
+                                    "url": "http://antoninlanglade.fr"
+                                }
+                            },
+                            {
+                                "name": "Laure Marchadier",
+                                "role": "Creative concept<br>Color correction<br>Film editing",
+                                "website": {
+                                    "title": "lauremjoy.com",
+                                    "url": "http://lauremjoy.com"
+                                }
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Adrien Antoine",
+                                "role": "Voice over"
+                            },
+                            {
+                                "name": "Emal Saïfi",
+                                "role": "Acting"
+                            },
+                            {
+                                "name": "Alice May",
+                                "role": "Acting",
+                                "website": {
+                                    "title": "alicemay.book.fr",
+                                    "url": "http://alicemay.book.fr"
+                                }
+                            },
+                            {
+                                "name": "Solal Lamé",
+                                "role": "Acting"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Olivier Patron",
+                                "role": "Chef operator<br>Direction of photography"
+                            },
+                            {
+                                "name": "Éléna Erhel",
+                                "role": "Operator assistant"
+                            },
+                            {
+                                "name": "Maxime Sabin",
+                                "role": "Electric chef"
+                            },
+                            {
+                                "name": "Alexandre Buyukodabas",
+                                "role": "Camera assistant"
+                            },
+                            {
+                                "name": "Kévin Théard",
+                                "role": "Photographer"
+                            },
+                            {
+                                "name": "Marc Fournier",
+                                "role": "Photographer"
+                            },
+                            {
+                                "name": "Lucien Richardson",
+                                "role": "Sound design"
+                            },
+                            {
+                                "name": "Éléonore Mallo",
+                                "role": "Sound design"
+                            },
+                            {
+                                "name": "Marion Létendard",
+                                "role": "Make-up",
+                                "website": {
+                                    "title": "Facebook",
+                                    "url": "https://www.facebook.com/profile.php?id=100006916755086&fref=ts"
+                                }
+                            },
+                            {
+                                "name": "Adeline Petit",
+                                "role": "Make-up",
+                                "website": {
+                                    "title": "Facebook",
+                                    "url": "https://www.facebook.com/profile.php?id=100008183628476&fref=ts"
                                 }
                             }
                         ]

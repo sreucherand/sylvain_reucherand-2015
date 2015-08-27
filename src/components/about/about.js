@@ -8,6 +8,7 @@ import select from 'dom-select'
 
 import DOMComponent from '../dom-component/dom-component'
 import Close from '../close/close'
+import Open from '../open/open'
 import viewport from '../utils/viewport'
 
 export default class About extends DOMComponent {
@@ -17,7 +18,7 @@ export default class About extends DOMComponent {
 
         const springSystem = new rebound.SpringSystem()
 
-		this.openBtn = select('.about__open', this.element)
+		this.open = new Open(select('.about__open', this.element))
 		this.close = new Close(select('[data-component="Close"]', this.element))
 		this.image = new DOMComponent(select('img', this.element))
 		this.overlay = new DOMComponent(select('.about__overlay', this.element))
@@ -30,14 +31,16 @@ export default class About extends DOMComponent {
 		this.hide = this.hide.bind(this)
 
 		this.addEntry(this.image.element)
+
 		this.addChild(this.close)
+		this.addChild(this.open)
 	}
 
 	init () {
 		super.init()
 
 		this.close.on('press', () => this.hide())
-		on(this.openBtn, 'click', () => this.show())
+		this.open.on('press', () => this.show())
 
 		this.spring.addListener({
             onSpringUpdate: (spring) => this.springUpdate(spring)
@@ -58,6 +61,7 @@ export default class About extends DOMComponent {
 		this.spring.setEndValue(0)
 
 		this.close.hide()
+		this.open.show()
 	}
 
 	springUpdate (spring) {

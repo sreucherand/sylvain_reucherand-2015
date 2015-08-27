@@ -9,21 +9,15 @@
 		font-family: 'Neue Haas Grotesk';
 		position: relative;
 
-		span {
-			display: inline-block;
-			bottom: 0;
-			position: absolute;
-			left: 0;
-		}
-
 		.btn__label {
-			bottom: 2px;
+			display: inline-block;
 			z-index: 1;
 		}
 		.btn__underline {
-			background: $black;
+			bottom: 0;
 			height: 50%;
-			opacity: 0.2;
+			left: 0;
+			position: absolute;
 			width: 100%;
 			z-index: 0;
 		}

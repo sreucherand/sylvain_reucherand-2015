@@ -1,3 +1,5 @@
+import './header.scss'
+
 import chroma from 'chroma-js'
 import rebound from 'rebound'
 import css from 'dom-css'

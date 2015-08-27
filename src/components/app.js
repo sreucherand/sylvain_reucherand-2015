@@ -53,8 +53,6 @@ class App {
     }
 
     init () {
-        console.log('app:init')
-
         this.loader.hide()
 
         this.about.init()

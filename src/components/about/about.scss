@@ -104,6 +104,14 @@
 	}
 }
 
+@include sm () {
+	.component-about {
+		.about__open {
+			left: 60px;
+		}
+	}
+} 
+
 @include md () {
 	.component-about {
 		.about__overlay {

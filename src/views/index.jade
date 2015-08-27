@@ -109,7 +109,10 @@ html
 
         .component-about(data-component='About')
             .about__open
-                p= about.open
+                .component-open(data-component='Open')
+                    .component-button
+                        .btn
+                            | !{about.open}
 
             .about__overlay
                 .overlay__content
@@ -147,7 +150,7 @@ html
                             span.btn__underline
 
         .component-loader(data-component='Loader')
-            .loader__image
+            .loader__content
                 img(src='/static/media/loader.gif')
 
     script(src='/static/app.bundle.js')
