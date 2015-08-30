@@ -41,7 +41,7 @@ export default class About extends DOMComponent {
 
 		this.hide = this.hide.bind(this)
 
-		this.addEntry(this.image.element)
+		this.addEntry(this.image.element.getAttribute('src'))
 
 		this.addChild(this.close)
 		this.addChild(this.open)

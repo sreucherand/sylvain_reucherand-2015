@@ -39,7 +39,7 @@ html
                                     each media in project.content.preview
                                         .preview__media.col-xs-12.col-sm-4(data-appearance)
                                             if media.type === 'video'
-                                                video(src='#{media.content.src}' poster='#{media.content.poster}' loop preload='none')
+                                                video(src='#{media.content.src}' poster='#{media.content.poster}' loop)
                                             else if media.type === 'image'
                                                 img(src='#{media.content.src}')
 

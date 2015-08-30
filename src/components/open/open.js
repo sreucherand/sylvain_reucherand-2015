@@ -33,7 +33,7 @@ export default class Open extends DOMComponent {
 
 			row.className = 'btn__row'
 
-			label.innerText = string
+			label.innerHTML = string
 			label.className = 'btn__label'
 
 			underline.className = 'btn__underline'

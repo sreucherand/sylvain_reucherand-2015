@@ -32,7 +32,7 @@ export default class Navigation extends DOMComponent {
         this.handleMouseEnter = this.handleMouseEnter.bind(this)
         this.handleMouseLeave = this.handleMouseLeave.bind(this)
 
-        this.addEntry(this.image.element)
+        this.addEntry(this.image.element.getAttribute('src'))
 
         this.addChild(this.label)
         this.addChild(this.stage)

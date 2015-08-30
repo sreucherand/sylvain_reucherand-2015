@@ -21,7 +21,7 @@ export default class Background extends DOMComponent {
 
 		this.render = this.render.bind(this)
 
-		this.addEntry(this.image.element)
+		this.addEntry(this.image.element.getAttribute('src'))
         this.addChild(this.stage)
 	}
 

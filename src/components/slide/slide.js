@@ -43,6 +43,9 @@ export default class Slide extends DOMComponent {
 		this.videos = Array.from(select.all('.preview__media video', this.element))
 		this.videos = this.videos.map(video => new DOMComponent(video))
 
+		this.images = Array.from(select.all('.preview__media img', this.element))
+		this.images = this.images.map(image => new DOMComponent(image))
+
 		this.details = Array.from(select.all('.details__detail', this.element))
 
 		for (let element of this.elements) {
@@ -82,6 +85,14 @@ export default class Slide extends DOMComponent {
         this.scrollDown = this.scrollDown.bind(this)
         this.scrollUp = this.scrollUp.bind(this)
         this.handleScroll = this.handleScroll.bind(this)
+
+        for (let image of this.images) {
+        	this.addEntry(image.element.getAttribute('src'))
+        }
+
+        for (let video of this.videos) {
+        	this.addEntry(video.element.getAttribute('poster'))
+        }
 
         this.addChild(this.background)
         this.addChild(this.content)

@@ -17,9 +17,9 @@ if (app.get('env') === 'development') {
 
     app.use(require('webpack-dev-middleware')(compiler, {lazy: false, publicPath: config.output.publicPath}));
     app.use(require('webpack-hot-middleware')(compiler));
+    
+    app.locals.pretty = true;
 }
-
-app.locals.pretty = true;
 
 glob(path.join(__dirname, 'src/routes/**/*.js'), {sync: true}).forEach(function (route) {
     require(route)(app);

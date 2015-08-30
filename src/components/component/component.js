@@ -22,8 +22,8 @@ export default class Component {
         keys.remove(this)
     }
 
-    addEntry (media) {
-        this.manifest.push(media)
+    addEntry (url) {
+        this.manifest = this.manifest.concat(url)
     }
 
     addChild (child) {

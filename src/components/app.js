@@ -25,6 +25,8 @@ class App {
         this.loader = new Loader(select('[data-component="Loader"]'))
         this.slider = new Slider(select('[data-component="Slider"]'))
 
+        console.log('coucou')
+
         this.load().then(() => this.init())
     }
 
@@ -35,11 +37,16 @@ class App {
         manifest = manifest.concat(this.about.manifest)
         manifest = manifest.concat(this.slider.manifest)
 
+        console.log(manifest)
+
         for (let entry of manifest) {
             promises.push(new Promise((resolve, reject) => {
                 let image = new Image()
-                image.onload = resolve
-                image.src = entry.src
+                image.onload = () => {
+                    console.log('coiucoucou')
+                    resolve()
+                }
+                image.src = entry
             }))
         }
 
@@ -62,11 +69,11 @@ class App {
 
 }
 
-window.onload = function () {
+window.onload = (function () {
     new App()
 
     FastClick.attach(document.body)
-}
+})
 
 console.log('%cHold on! You\'re looking for a interactive developer? I\'m looking for a job in Copenhagen. %c--> %chireMe()', 'color: #2a2a2c; font-size: 16px; font-weight: bold', 'color: #000000; font-size: 14px; font-weight: bold', 'color: #d35400; font-size: 16px; font-weight: bold')
 
