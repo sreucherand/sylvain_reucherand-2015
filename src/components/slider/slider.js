@@ -66,7 +66,7 @@ export default class Slider extends DOMComponent {
 
             slide.on('previous', () => this.handlePrevious())
             slide.on('next', () => this.handleNext())
-            slide.on('open', () => this.handleOpen())
+            slide.on('open', (id) => this.handleOpen(id))
             slide.on('close', (force) => this.handleClose(force))
         }
 
@@ -123,13 +123,15 @@ export default class Slider extends DOMComponent {
         this.spring.setEndValue(this.currentIndex)
     }
 
-    handleOpen () {
+    handleOpen (id) {
         this.sleep()
         this.removeGestureManager()
 
         this.close.color = this.currentSlide.colorReference
         this.close.show()
         this.more.hide()
+
+        history.pushState({}, null, `/${id}`)
 
         this.trigger('open')
     }
@@ -142,6 +144,8 @@ export default class Slider extends DOMComponent {
             this.initGestureManager()
 
             this.more.show()
+
+            history.pushState({}, null, '/')
 
             this.trigger('close')
         }

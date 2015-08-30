@@ -9,4 +9,5 @@ router.get('/', function (req, res) {
 
 module.exports = function (app) {
     app.use('/', router);
+    app.use('/:project', router);
 };

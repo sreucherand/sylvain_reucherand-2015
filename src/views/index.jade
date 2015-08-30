@@ -25,7 +25,7 @@ html
     body
         .component-slider.container-fluid(data-component='Slider')
             each project, index in projects
-                .component-slide(data-dynamic-color='#{project.color}' data-component='Slide')
+                .component-slide(data-id='#{project.name}' data-dynamic-color='#{project.color}' data-component='Slide')
                     .component-header.slide__header.row.center-xs.middle-xs(data-component='Header')
                         .col-xs-12.col-sm-6
                             h2.header__title= project.content.title

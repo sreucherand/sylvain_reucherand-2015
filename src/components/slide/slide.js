@@ -24,6 +24,7 @@ export default class Slide extends DOMComponent {
 
         const springSystem = new rebound.SpringSystem()
 
+        this.id = this.element.getAttribute('data-id')
 		this.colorReference = chroma(this.element.getAttribute('data-dynamic-color'))
 		this.callbacks = []
         this.done = []
@@ -157,7 +158,7 @@ export default class Slide extends DOMComponent {
 
 		on(this.element, 'scroll', this.handleScroll)
 
-		this.trigger('open')
+		this.trigger('open', this.id)
 	}
 
 	close (force) {

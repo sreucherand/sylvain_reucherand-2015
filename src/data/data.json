@@ -25,6 +25,7 @@
 	"projects": [
         {
             "_id": 0,
+            "name": "reuters-wider",
             "color": "#000482",
             "cover": "/static/media/reuters_cover.jpg",
             "navigation": "/static/media/reuters_navigation.jpg",
@@ -119,6 +120,7 @@
         },
         {
             "_id": 1,
+            "name": "dahlia-divin",
             "color": "#eed064",
             "cover": "/static/media/dahlia-divin_cover.jpg",
             "navigation": "/static/media/dahlia-divin_navigation.jpg",
@@ -205,6 +207,7 @@
         },
         {
             "_id": 2,
+            "name": "mirage",
             "color": "#252b66",
             "cover": "/static/media/mirage_cover.jpg",
             "navigation": "/static/media/mirage_navigation.jpg",
