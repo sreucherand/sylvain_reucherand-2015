@@ -45,11 +45,7 @@ module.exports = {
         path: path.resolve(__dirname, '../static')
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                pure_funcs: ['console.log']
-            }
-        }),
+        new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin('[name].bundle.css')
     ],
     resolve: {
