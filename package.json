@@ -1,6 +1,6 @@
 {
   "name": "sylvainreucherand",
-  "version": "0.9.5",
+  "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "author": "Sylvain Reucherand <hello@sylvainreucherand.fr>",

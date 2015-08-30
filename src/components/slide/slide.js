@@ -158,7 +158,7 @@ export default class Slide extends DOMComponent {
 
 		on(this.element, 'scroll', this.handleScroll)
 
-		this.trigger('open', this.id)
+		this.trigger('open')
 	}
 
 	close (force) {
