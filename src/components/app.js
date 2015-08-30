@@ -26,8 +26,6 @@ class App {
         this.loader = new Loader(select('[data-component="Loader"]'))
         this.slider = new Slider(select('[data-component="Slider"]'))
 
-        console.log('coucou')
-
         this.load().then(() => this.init())
     }
 
@@ -38,15 +36,10 @@ class App {
         manifest = manifest.concat(this.about.manifest)
         manifest = manifest.concat(this.slider.manifest)
 
-        console.log(manifest)
-
         for (let entry of manifest) {
             promises.push(new Promise((resolve, reject) => {
                 let image = new Image()
-                image.onload = () => {
-                    console.log('coiucoucou')
-                    resolve()
-                }
+                image.onload = resolve
                 image.src = entry
             }))
         }
