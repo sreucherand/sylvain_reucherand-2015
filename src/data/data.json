@@ -130,22 +130,22 @@
                     {
                         "type": "video",
                         "content": {
-                            "poster": "/static/media/dahlia_poster-1.jpg",
-                            "src": "/static/media/dahlia_screen-1.mp4"
+                            "poster": "/static/media/dahlia-divin_poster-1.jpg",
+                            "src": "/static/media/dahlia-divin_screen-1.mp4"
                         }
                     },
                     {
                         "type": "video",
                         "content": {
-                            "poster": "/static/media/dahlia_poster-2.jpg",
-                            "src": "/static/media/dahlia_screen-2.mp4"
+                            "poster": "/static/media/dahlia-divin_poster-2.jpg",
+                            "src": "/static/media/dahlia-divin_screen-2.mp4"
                         }
                     },
                     {
                         "type": "video",
                         "content": {
-                            "poster": "/static/media/dahlia_poster-3.jpg",
-                            "src": "/static/media/dahlia_screen-3.mp4"
+                            "poster": "/static/media/dahlia-divin_poster-3.jpg",
+                            "src": "/static/media/dahlia-divin_screen-3.mp4"
                         }
                     }
                 ],
