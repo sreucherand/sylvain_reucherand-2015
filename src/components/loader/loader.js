@@ -20,9 +20,6 @@ export default class Loader extends DOMComponent {
         this.spring.addListener({
             onSpringUpdate: (spring) => this.springUpdate(spring)
         })
-
-        nprogress.configure({showSpinner: false})
-        nprogress.start()
 	}
 
 	hide () {

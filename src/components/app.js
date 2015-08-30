@@ -16,6 +16,7 @@ import Slider from './slider/slider'
 import select from 'dom-select'
 import FastClick from 'FastClick'
 import MobileDetect from 'mobile-detect'
+import nprogress from 'nprogress'
 import Promise from 'bluebird'
 
 class App {
@@ -80,3 +81,6 @@ console.log('%cHold on! You\'re looking for a interactive developer? I\'m lookin
 window.hireMe = function () {
     window.location = 'mailto:hello@sylvainreucherand.fr'
 }
+
+nprogress.configure({showSpinner: false})
+nprogress.start()
