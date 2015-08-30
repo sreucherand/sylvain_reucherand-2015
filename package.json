@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "UV_THREADPOOL_SIZE=10 node server.js",
-    "build": "UV_THREADPOOL_SIZE=10 gulp build"
+    "build": "UV_THREADPOOL_SIZE=10 webpack --config config/webpack.production.config.js --progress -p"
   },
   "dependencies": {
     "express": "^4.13.1",
