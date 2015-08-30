@@ -5,9 +5,6 @@ import 'flexboxgrid/dist/flexboxgrid.css'
 import '../scss/common.scss'
 import '../scss/base/_fonts.scss'
 
-import 'TweenLite'
-import 'EasePack'
-
 import './button/button.scss'
 import './shadow/shadow.scss'
 import './stage/stage.scss'
@@ -24,8 +21,6 @@ import Promise from 'bluebird'
 class App {
 
     constructor () {
-        TweenLite.defaultEase = Expo.easeOut
-
         this.about = new About(select('[data-component="About"]'))
         this.loader = new Loader(select('[data-component="Loader"]'))
         this.slider = new Slider(select('[data-component="Slider"]'))

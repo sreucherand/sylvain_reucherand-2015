@@ -52,12 +52,6 @@ module.exports = {
         new webpack.NoErrorsPlugin()
     ],
     resolve: {
-        alias: {
-            'TweenLite': path.resolve(__dirname, '../node_modules/gsap/src/minified/TweenLite.min.js'),
-            'TimelineLite': path.resolve(__dirname, '../node_modules/gsap/src/minified/TimelineLite.min.js'),
-            'CSSPlugin': path.resolve(__dirname, '../node_modules/gsap/src/minified/plugins/CSSPlugin.min.js'),
-            'EasePack': path.resolve(__dirname, '../node_modules/gsap/src/minified/easing/EasePack.min.js')
-        },
         extensions: ['', '.js', '.jsx']
     }
 };

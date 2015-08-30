@@ -11,6 +11,10 @@ module.exports = {
     module: {
         loaders: [
             {
+                test: /\.css$/,
+                loader: 'style!css'
+            },
+            {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract('style', 'css?minimize!autoprefixer!sass?includePaths[]=' + path.resolve(__dirname, '../src/scss'))
             },
@@ -49,13 +53,6 @@ module.exports = {
         new ExtractTextPlugin('[name].bundle.css')
     ],
     resolve: {
-        alias: {
-            'TweenLite': path.resolve(__dirname, '../node_modules/gsap/src/minified/TweenLite.min.js'),
-            'TimelineLite': path.resolve(__dirname, '../node_modules/gsap/src/minified/TimelineLite.min.js'),
-            'CSSPlugin': path.resolve(__dirname, '../node_modules/gsap/src/minified/plugins/CSSPlugin.min.js'),
-            'EasePack': path.resolve(__dirname, '../node_modules/gsap/src/minified/easing/EasePack.min.js'),
-            'ScrollToPlugin': path.resolve(__dirname, '../node_modules/gsap/src/minified/plugins/ScrollToPlugin.min.js')
-        },
         extensions: ['', '.js', '.jsx']
     }
 };
