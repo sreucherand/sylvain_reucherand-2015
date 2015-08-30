@@ -134,9 +134,9 @@ export default class Open extends DOMComponent {
 
 		for (let label of this.labels) {
 			if (this.md.mobile()) {
-				label.opacity = clamp(progress, 0, 1)
+				label.opacity = clamp(progress * 0.8, 0, 1)
 			} else {
-				label.opacity = clamp(progress - 1, 0, 1)
+				label.opacity = clamp(progress * 0.8 - 1, 0, 1)
 			}
 		}
 

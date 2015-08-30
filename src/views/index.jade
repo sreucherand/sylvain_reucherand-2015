@@ -2,24 +2,25 @@ doctype html
 html
     head
         meta(charset='utf-8')
-        title Sylvain Reucherand - Interactive Developer
-        meta(name='description' content='')
-        meta(name='keywords' content='')
+        title= meta.title
+        meta(name='description' content='#{meta.description}')
+        meta(name='keywords' content='#{meta.keywords}')
         meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
 
-        meta(property='og:title' content='Sylvain Reucherand - Interactive Developer')
-        meta(property='og:image' content='')
-        meta(property='og:url' content='http://sylvainreucherand.fr')
-        meta(property='og:site-name' content='Sylvain Reucherand - Interactive Developer')
+        meta(property='og:title' content='#{meta.title}')
+        meta(property='og:image' content='#{meta.image}')
+        meta(property='og:url' content='#{meta.url}')
+        meta(property='og:site-name' content='#{meta.title}')
 
         meta(name='twitter:card' content='summary_large_image')
-        meta(name='twitter:site' content='@sreucherand')
-        meta(name='twitter:creator' content='@sreucherand')
-        meta(name='twitter:title' content='Sylvain Reucherand - Interactive Developer')
-        meta(name='twitter:description' content='')
-        meta(name='twitter:image:src' content='')
+        meta(name='twitter:site' content='#{meta.twitter}')
+        meta(name='twitter:creator' content='#{meta.twitter}')
+        meta(name='twitter:title' content='#{meta.title}')
+        meta(name='twitter:description' content='#{meta.description}')
+        meta(name='twitter:image:src' content='#{meta.image}')
 
         link(rel='stylesheet' href='/static/app.bundle.css')
+        link(rel='shortcut icon' href='/static/media/favicon.ico')
 
     body
         .component-slider.container-fluid(data-component='Slider')
@@ -33,10 +34,14 @@ html
 
                     .slide__content
                         .content__main
-                            .slide__preview.row
-                                .preview__media.col-xs-12.col-sm-4
-                                .preview__media.col-xs-12.col-sm-4
-                                .preview__media.col-xs-12.col-sm-4
+                            .slide__preview
+                                .preview__inner.row
+                                    each media in project.content.preview
+                                        .preview__media.col-xs-12.col-sm-4(data-appearance)
+                                            if media.type === 'video'
+                                                video(src='#{media.content.src}' poster='#{media.content.poster}' loop preload='none')
+                                            else if media.type === 'image'
+                                                img(src='#{media.content.src}')
 
                             .slide__description.row
                                 .slide__links.col-xs-12.col-sm-6.col-sm-offset-3.col-md-3.col-md-offset-3(data-appearance)
@@ -150,8 +155,6 @@ html
                             span.btn__underline
 
         .component-loader(data-component='Loader')
-            .loader__content
-                img(src='/static/media/loader.gif')
 
     script(src='/static/app.bundle.js')
 
@@ -161,4 +164,4 @@ html
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];
         e.src='//www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXXXXX-X');ga('send','pageview');
+        ga('create','UA-37300118-1');ga('send','pageview');

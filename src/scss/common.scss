@@ -1,8 +1,11 @@
+@import 'utils/colors';
+
 html,
 body {
     height: 100%;
 }
 body {
+	color: $dark-grey;
 	font-family: 'Maison Neue', sans-serif;
 	font-size: 16px;
     font-weight: 300;
@@ -14,6 +17,11 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+*::selection {
+	background-color: $grey;
+	color: $white;
 }
 
 a {
@@ -42,7 +50,8 @@ p {
     margin-top: 0;
 }
 
-img {
+img,
+video {
 	display: block;
 }
 

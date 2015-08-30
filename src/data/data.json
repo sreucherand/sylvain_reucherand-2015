@@ -1,13 +1,24 @@
 {
+    "meta": {
+        "title": "Sylvain Reucherand - Interactive Developer",
+        "keywords": "sylvain, reucherand, interactive, developer, front",
+        "description": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer based in Paris – France.",
+        "url": "http://sylvainreucherand.fr",
+        "image": "http://sylvainreucherand.fr/static/media/share.jpg",
+        "twitter": "@sreucherand"
+    },
     "about": {
         "open": "I'm Sylvain Reucherand,<br>an interactive developer<br>looking for a job in<br>Copenhagen.",
-        "title": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer.",
+        "title": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer based in Paris – France.",
         "paragraphs": [
             {
                 "text": "I'm freshly graduated from Gobelins, l'École de l'Image, in Paris – France. <strong>I'm currently looking for a job in Copenhagen.</strong> I always try to bring something different, unique on projects I work on, enhance navigation experience using UI animations and motion design applied to development. I keep attention to details."
             },
             {
-                "text": "I work mostly with javascript, object-oriented programming, modular approach and reusable code. You can check some of my work on my GitHub and my experiments on CodePen. Let's keep in touch !"
+                "text": "I work mostly with javascript, object-oriented programming, modular approach and reusable code. You can check some of my work on my GitHub and my experiments on CodePen. Let's keep in touch!"
+            },
+            {
+                "text": "My portfolio has been designed by <a href=\"http://iamjulie.cool\">Julie Muckensturm</a>. Thank you, you are amazing!"
             }
         ]
     },
@@ -20,11 +31,34 @@
             "content": {
                 "title": "Reuters Wider",
                 "excerpt": "Discover Reuters Wider, a brand new mobile application as a new way to read the news.",
-                "description": "Wider is a prototype mobile application developped as part of a one month workshop at Gobelins – l'École de l'Image, in collaboration with the Thomson Reuters Foundation.",
+                "description": "Wider is a prototype mobile application developed as part of a one month workshop at Gobelins – l'École de l'Image, in collaboration with the Thomson Reuters Foundation.",
+                "preview": [
+                    {
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/reuters_poster-1.jpg",
+                            "src": "/static/media/reuters_screen-1.mp4"
+                        }
+                    },
+                    {
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/reuters_poster-2.jpg",
+                            "src": "/static/media/reuters_screen-2.mp4"
+                        }
+                    },
+                    {
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/reuters_poster-3.jpg",
+                            "src": "/static/media/reuters_screen-3.mp4"
+                        }
+                    }
+                ],
                 "details": [
                     {
                         "title": "Purpose",
-                        "text": "Imagine an interactive scenario in order to promote the content et the actions carried by the Thomson Reuters Foundation on its website <a href=\"http://www.trust.org\">http://www.trust.org</a>. Aim the digital natives, enlarge the audience with an adapted editorial approach, more entertaining, more immersive, and bring the people to invest the subject."
+                        "text": "Imagine an interactive scenario in order to promote the content and the actions carried by the Thomson Reuters Foundation on its website <a href=\"http://www.trust.org\">http://www.trust.org</a>. Aim the digital natives, enlarge the audience with an adapted editorial approach, more entertaining, more immersive, and bring the people to invest the subject."
                     },
                     {
                         "title": "Solution",
@@ -90,18 +124,41 @@
             "navigation": "/static/media/dahlia-divin_navigation.jpg",
             "content": {
                 "title": "Dahlia Divin",
-                "excerpt": "Wider is a prototype mobile application developped as part of a one month workshop.",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "excerpt": "An immersive and interactive web experience that dives you into the legend of Dahlia Divin.",
+                "description": "The experience immerses you in the discovery of the design process of the new Givenchy fragrance through the elevation of a gold thread.",
+                "preview": [
+                    {
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/dahlia_poster-1.jpg",
+                            "src": "/static/media/dahlia_screen-1.mp4"
+                        }
+                    },
+                    {
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/dahlia_poster-2.jpg",
+                            "src": "/static/media/dahlia_screen-2.mp4"
+                        }
+                    },
+                    {
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/dahlia_poster-3.jpg",
+                            "src": "/static/media/dahlia_screen-3.mp4"
+                        }
+                    }
+                ],
                 "details": [
                     {
                         "title": "Purpose",
-                        "text": "Imagine an interactive scenario in order to promote the content et the actions carried by the Thomson Reuters Foundation on its website <a href=\"http://www.trust.org\">http://www.trust.org</a>. Aim the digital natives, enlarge the audience with an adapted editorial approach, more entertaining, more immersive, and bring the people to invest the subject."
+                        "text": "Bring the power of new browser capabilities in order to enhance the content and the navigation. Webgl is used to draw the gold thread according to the user scroll progress. The scrollable area is reverse to emphasize the elevation to the fragrance."
                     }
                 ],
                 "links": [
                     {
-                        "title": "More on my Github",
-                        "url": "https://github.com/sreucherand/reuters-wider"
+                        "title": "Visit the site",
+                        "url": "http://dahliadivin.com"
                     }
                 ],
                 "meta": {
@@ -148,30 +205,56 @@
         },
         {
             "_id": 2,
-            "color": "#b99a5a",
+            "color": "#252b66",
             "cover": "/static/media/mirage_cover.jpg",
             "navigation": "/static/media/mirage_navigation.jpg",
             "content": {
                 "title": "Think Mirage",
-                "excerpt": "Wider is a prototype mobile application developped as part of a one month workshop.",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "details": [
+                "excerpt": "What place does man want to give to the technology in his life? Mirage lets you think about it.",
+                "description": "Mirage is an interactive short movie about transhumanism and the place that human gives to the technology in his life. It was my graduation project at Gobelins, l'École de l'Image, Paris – France. Online soon.",
+                "preview": [
                     {
-                        "title": "Objective",
-                        "text": "Imagine an interactive scenario in order to promote the content et the actions carried by the Thomson Reuters Foundation on its website <a href=\"http://www.trust.org\">http://www.trust.org</a>. Aim the digital natives, enlarge the audience with an adapted editorial approach, more entertaining, more immersive, and bring the people to invest the subject."
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/mirage_poster-1.jpg",
+                            "src": "/static/media/mirage_screen-1.mp4"
+                        }
                     },
                     {
-                        "title": "Solution",
-                        "text": "A more visual, organized, simple, immersive mobile application."
-                    }
-                ],
-                "links": [
+                        "type": "video",
+                        "content": {
+                            "poster": "/static/media/mirage_poster-2.jpg",
+                            "src": "/static/media/mirage_screen-2.mp4"
+                        }
+                    },
                     {
-                        "title": "Visit the website",
-                        "url": "https://github.com/sreucherand/reuters-wider"
+                        "type": "image",
+                        "content": {
+                            "src": "/static/media/mirage_poster-3.jpg"
+                        }
                     }
                 ],
-                "meta": {
+                "details": [
+                    {
+                        "title": "Thinking",
+                        "text": "We thought that a lot of people want to change the world. Perhaps to avoid the inevitable scenario that leads man to death. With transhumanism, we suggest a prospective evolution of humanity and ask the user what place does he want to give to the technology in his life?"
+                    },
+                    {
+                        "title": "Story",
+                        "text": "Edward loves his wife and his kid. He's afraid of anything that might happen to them. So he dreams of himself as being stronger, sharper and more aware of the world around him, to protect them. He dreams of IO, an artificial intelligence in his brain that can analyze a situation much faster than him and even suggests the best things he may chose."
+                    },
+                    {
+                        "title": "Installation",
+                        "text": "The experience will be available online soon. But, we thought that the subject and our purpose could interested people in a different way. That is why we built a physical installation. It's consists of a sensitive glass display surrounded by a wooden structure. We use a combination of IR leds, IR camera and video projector to achieve this performance."
+                    }
+                ],
+               "links": [
+                    {
+                       "title":"Visit the site",
+                       "url":"http://thinkmirage.io"
+                    }
+                ],
+               "meta": {
                     "informations": [
                         {
                             "title": "My role",
@@ -233,9 +316,7 @@
                             {
                                 "name": "Solal Lamé",
                                 "role": "Acting"
-                            }
-                        ],
-                        [
+                            },
                             {
                                 "name": "Olivier Patron",
                                 "role": "Chef operator<br>Direction of photography"
@@ -251,7 +332,9 @@
                             {
                                 "name": "Alexandre Buyukodabas",
                                 "role": "Camera assistant"
-                            },
+                            }
+                        ],
+                        [
                             {
                                 "name": "Kévin Théard",
                                 "role": "Photographer"
@@ -282,6 +365,22 @@
                                 "website": {
                                     "title": "Facebook",
                                     "url": "https://www.facebook.com/profile.php?id=100008183628476&fref=ts"
+                                }
+                            },
+                            {
+                                "name": "Jean-Kanora You",
+                                "role": "Craftsman",
+                                "website": {
+                                    "title": "Atelier Seewhy",
+                                    "url": "http://www.ateliers-seewhy.com"
+                                }
+                            },
+                            {
+                                "name": "Bruno Clanet",
+                                "role": "Craftsman",
+                                "website": {
+                                    "title": "Atelier Seewhy",
+                                    "url": "http://www.ateliers-seewhy.com"
                                 }
                             }
                         ]

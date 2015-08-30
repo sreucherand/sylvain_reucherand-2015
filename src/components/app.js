@@ -18,6 +18,7 @@ import Slider from './slider/slider'
 
 import select from 'dom-select'
 import FastClick from 'FastClick'
+import MobileDetect from 'mobile-detect'
 import Promise from 'bluebird'
 
 class App {
@@ -29,9 +30,7 @@ class App {
         this.loader = new Loader(select('[data-component="Loader"]'))
         this.slider = new Slider(select('[data-component="Slider"]'))
 
-        this.loader.load().then(() => {
-            this.load().then(() => this.init())
-        })
+        this.load().then(() => this.init())
     }
 
     load () {
@@ -53,10 +52,17 @@ class App {
     }
 
     init () {
+        const md = new MobileDetect(window.navigator.userAgent)
+
         this.loader.hide()
 
         this.about.init()
         this.slider.init()
+
+        if (md.mobile()) {
+            this.slider.on('open', () => this.about.open.hide())
+            this.slider.on('close', () => this.about.open.show())
+        }
     }
 
 }
@@ -67,7 +73,7 @@ window.onload = function () {
     FastClick.attach(document.body)
 }
 
-console.log('%cHold on! You\'re looking for a interactive developer? I\'m looking for a job in Copenhagen. %c--> %chireMe()', 'color: #2c3e50; font-size: 16px; font-weight: bold', 'color: #000000; font-size: 14px; font-weight: bold', 'color: #d35400; font-size: 16px; font-weight: bold')
+console.log('%cHold on! You\'re looking for a interactive developer? I\'m looking for a job in Copenhagen. %c--> %chireMe()', 'color: #2a2a2c; font-size: 16px; font-weight: bold', 'color: #000000; font-size: 14px; font-weight: bold', 'color: #d35400; font-size: 16px; font-weight: bold')
 
 window.hireMe = function () {
     window.location = 'mailto:hello@sylvainreucherand.fr'

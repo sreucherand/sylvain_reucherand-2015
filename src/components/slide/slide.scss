@@ -28,13 +28,30 @@
             padding-bottom: 30px;
             padding-left: 20px;
             padding-right: 20px;
-            padding-top: 300px;
+            padding-top: 240px;
 
-            .slide__preview,
+            .slide__preview .preview__inner,
             .slide__description,
             .slide__meta {
                 margin:: 0 auto;
                 max-width:  1024px;
+            }
+
+            .slide__preview {
+                background-color: $ultra-light-grey;
+                margin-bottom: 80px;
+                padding-top: 30px;
+
+                .preview__inner {
+                    padding: 0 1em;
+                }
+
+                img,
+                video {
+                    box-shadow: 3px 3px 15px $shadow;
+                    margin-bottom: 30px;
+                    width: 100%;
+                }
             }
 
             .slide__links {
@@ -48,11 +65,11 @@
     }
 
     .slide__details {
-        color: $medium-grey;
+        color: $grey;
         margin-bottom: 20px;
 
         .details__description {
-            color: $light-grey;
+            color: $medium-grey;
             font-family: 'Neue Haas Grotesk';
             font-size: 28px;
             font-weight: 700;

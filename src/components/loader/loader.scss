@@ -5,19 +5,22 @@
 	height: 100%;
 	left: 0;
 	overflow: hidden;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 200;
+}
 
-	.loader__content {
-		left: 50%;
+#nprogress {
+ 	pointer-events: none;
+
+	.bar {
+		background-color: $ultra-light-grey;
+		height: 20px;
+		left: 0;
 		position: absolute;
-		top: 50%;
-
-		img {
-			margin-left: -50%;
-			margin-top: -50%;
-		}
+		top: 0;
+		width: 100%;
+		z-index: 1031;
 	}
 }

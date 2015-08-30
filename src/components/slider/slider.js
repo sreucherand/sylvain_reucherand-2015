@@ -36,6 +36,7 @@ export default class Slider extends DOMComponent {
         this.stage = new CanvasComponent(select('[data-component="Stage"] canvas'))
 
         this.spring = springSystem.createSpring(4.5, 5.7)
+        this.spring.setCurrentValue(-1)
         
         for (let slide of this.slides) {
             this.addChild(slide)
@@ -77,6 +78,7 @@ export default class Slider extends DOMComponent {
         this.focus()
         this.initGestureManager()
         this.springUpdate(this.spring, true)
+        this.spring.setEndValue(0)
 
         this.on('down', this.openCurrentSlide)
         this.on('left', this.goToPreviousSlide)
@@ -128,6 +130,8 @@ export default class Slider extends DOMComponent {
         this.close.color = this.currentSlide.colorReference
         this.close.show()
         this.more.hide()
+
+        this.trigger('open')
     }
 
     handleClose (force) {
@@ -138,6 +142,8 @@ export default class Slider extends DOMComponent {
             this.initGestureManager()
 
             this.more.show()
+
+            this.trigger('close')
         }
     }
 
@@ -216,8 +222,6 @@ export default class Slider extends DOMComponent {
     springUpdate (spring, force) {
         let progress = spring.getCurrentValue()
 
-        this.more.progress = progress
-
         this.slides.forEach((slide, index) => {
             let slideProgress = 1 - Math.abs(progress - index)
             
@@ -234,7 +238,9 @@ export default class Slider extends DOMComponent {
             slide.header.render()
         })
 
+        this.more.progress = clamp(progress, 0, this.slides.length - 1)
         this.more.render()
+        
         this.render()
     }
 

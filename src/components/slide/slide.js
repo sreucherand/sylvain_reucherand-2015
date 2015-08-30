@@ -40,6 +40,9 @@ export default class Slide extends DOMComponent {
 		this.elements = Array.from(select.all('[data-appearance]', this.content.element))
 		this.elements = this.elements.map(element => new DOMComponent(element))
 
+		this.videos = Array.from(select.all('.preview__media video', this.element))
+		this.videos = this.videos.map(video => new DOMComponent(video))
+
 		this.details = Array.from(select.all('.details__detail', this.element))
 
 		for (let element of this.elements) {
@@ -127,6 +130,7 @@ export default class Slide extends DOMComponent {
 
 	open () {
 		this.focus()
+		this.play()
 		this.background.show()
 
 		for (let element of this.elements) {
@@ -147,6 +151,7 @@ export default class Slide extends DOMComponent {
 
 	close (force) {
 		this.sleep()
+		this.stop()
 		this.background.hide()
 		this.header.close()
 		this.spring.setEndValue(0)
@@ -166,6 +171,19 @@ export default class Slide extends DOMComponent {
 		this.close(true)
 
 		this.callbacks.push(() => this.trigger('next'))
+	}
+
+	play () {
+		for (let video of this.videos) {
+			video.element.play()
+		}
+	}
+
+	stop () {
+		for (let video of this.videos) {
+			video.element.pause()
+			video.element.currentTime = 0
+		}
 	}
 
 	scrollDown () {

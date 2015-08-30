@@ -8,6 +8,7 @@ import select from 'dom-select'
 
 import DOMComponent from '../dom-component/dom-component'
 import Close from '../close/close'
+import Link from '../link/link'
 import Open from '../open/open'
 import viewport from '../utils/viewport'
 
@@ -25,6 +26,16 @@ export default class About extends DOMComponent {
 
 		this.backgroundColor = chroma('white').alpha(0)
 		this.colors = [chroma('white').alpha(0), chroma('white')]
+
+		for (let paragraph of select.all('.description__paragraph', this.element)) {
+			let links = Array.from(select.all('a', paragraph))
+
+			for (let link of links) {
+				link = new Link(link)
+
+				this.addChild(link)
+			}
+		}
 
 		this.spring = springSystem.createSpring(10, 6)
 

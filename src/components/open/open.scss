@@ -3,7 +3,7 @@
 
 .component-open {
 	.btn {
-		color: $light-grey;
+		color: $grey;
 
 		&__row {
 			display: table;
@@ -14,7 +14,7 @@
 			position: relative;
 		}
 		&__underline {
-			background-color: $thin-grey;
+			background-color: $light-grey;
 			opacity: 1;
 		}
 	}
