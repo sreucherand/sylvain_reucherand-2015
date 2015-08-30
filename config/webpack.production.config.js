@@ -12,7 +12,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: 'style!css'
+                loader: ExtractTextPlugin.extract('style', 'css?minimize')
             },
             {
                 test: /\.scss$/,
