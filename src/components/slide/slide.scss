@@ -28,7 +28,7 @@
             padding-bottom: 30px;
             padding-left: 20px;
             padding-right: 20px;
-            padding-top: 240px;
+            padding-top: 150px;
 
             .slide__preview .preview__inner,
             .slide__description,
@@ -100,6 +100,12 @@
 
 @include sm {
     .component-slide {
+        .slide__content {
+            .content__main {
+                padding-top: 250px;
+            }
+        }
+
         .slide__meta {
             font-size: 12px;
             line-height: 18px;
