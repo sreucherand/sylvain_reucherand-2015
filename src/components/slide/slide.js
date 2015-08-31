@@ -186,7 +186,7 @@ export default class Slide extends DOMComponent {
 	}
 
 	play () {
-		if (!this.is('iPhone')) {
+		if (!this.md.is('iPhone')) {
 			for (let video of this.videos) {
 				video.element.play()
 			}
