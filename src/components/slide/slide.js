@@ -186,8 +186,10 @@ export default class Slide extends DOMComponent {
 	}
 
 	play () {
-		for (let video of this.videos) {
-			video.element.play()
+		if (!this.md.mobile()) {
+			for (let video of this.videos) {
+				video.element.play()
+			}
 		}
 	}
 
