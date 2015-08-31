@@ -22,6 +22,7 @@ export default class Slider extends DOMComponent {
         const springSystem = new rebound.SpringSystem()
 
         this.callbacks = []
+        this.manifest = ['/static/media/cursor-grab.gif', '/static/media/cursor-rock.gif']
 
         this.slides = Array.from(select.all('[data-component="Slide"]', this.element))
         this.slides = this.slides.map(slide => new Slide(slide))
@@ -75,6 +76,7 @@ export default class Slider extends DOMComponent {
             onSpringAtRest: (spring) => this.springComplete(spring)
         })
 
+        this.cursorOut()
         this.focus()
         this.initGestureManager()
         this.springUpdate(this.spring, true)
@@ -88,10 +90,14 @@ export default class Slider extends DOMComponent {
     initGestureManager () {
         this.gestureManager = new Hammer.Manager(this.element)
         this.gestureManager.add(new Hammer.Pan({direction: Hammer.DIRECTION_HORIZONTAL, threshold: 5}))
+        this.gestureManager.add(new Hammer.Press({threshold: 5, time: 0}))
 
         this.gestureManager.on('panmove', (evt) => this.handlePan(evt))
         this.gestureManager.on('panstart', (evt) => this.handleStart(evt))
         this.gestureManager.on('panend pancancel', (evt) => this.handleRelease(evt))
+
+        this.gestureManager.on('press', (evt) => this.handlePress(evt))
+        this.gestureManager.on('pressup', (evt) => this.handlePressUp(evt))
     }
 
     removeGestureManager () {
@@ -123,7 +129,20 @@ export default class Slider extends DOMComponent {
         this.spring.setEndValue(this.currentIndex)
     }
 
+    cursorIn () {
+        css(this.element, 'cursor', 'url("/static/media/cursor-grab.gif"), auto')
+    }
+
+    cursorOut () {
+        css(this.element, 'cursor', 'url("/static/media/cursor-rock.gif"), auto')
+    }
+
+    cursorReset () {
+        css(this.element, 'cursor', 'auto')
+    }
+
     handleOpen () {
+        this.cursorReset()
         this.sleep()
         this.removeGestureManager()
 
@@ -138,6 +157,7 @@ export default class Slider extends DOMComponent {
         this.close.hide()
 
         if (!force) {
+            this.cursorOut()
             this.focus()
             this.initGestureManager()
 
@@ -169,6 +189,14 @@ export default class Slider extends DOMComponent {
         this.goToSlideAtIndex((this.currentIndex + 1) % this.slides.length)
     }
 
+    handlePress () {
+        this.cursorIn()
+    }
+
+    handlePressUp () {
+        this.cursorOut()
+    }
+
     handleStart (evt) {
         this.center = evt.center.x
         this.spring.setAtRest()
@@ -193,6 +221,7 @@ export default class Slider extends DOMComponent {
         this.spring.setEndValue(this.currentIndex)
         this.spring.setVelocity(velocity * 30);
 
+        this.cursorOut()
         this.initGestureManager()
     }
 
