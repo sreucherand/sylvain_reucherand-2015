@@ -69,11 +69,5 @@ window.onload = (function () {
     FastClick.attach(document.body)
 })
 
-console.log('%cHold on! You\'re looking for a interactive developer? I\'m looking for a job in Copenhagen. %c--> %chireMe()', 'color: #2a2a2c; font-size: 16px; font-weight: bold', 'color: #000000; font-size: 14px; font-weight: bold', 'color: #d35400; font-size: 16px; font-weight: bold')
-
-window.hireMe = function () {
-    window.location = 'mailto:hello@sylvainreucherand.fr'
-}
-
 nprogress.configure({showSpinner: false})
 nprogress.start()

@@ -8,7 +8,7 @@
         "twitter": "@sreucherand"
     },
     "about": {
-        "open": "I'm Sylvain Reucherand,<br>an interactive developer<br>based in Copenhagen – Denmark.",
+        "open": "I'm Sylvain Reucherand,<br>an interactive developer<br>based in Copenhagen<br>– Denmark.",
         "title": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer based in Copenhagen – Denmark.",
         "paragraphs": [
             {
@@ -22,7 +22,7 @@
             }
         ]
     },
-	"projects": [
+    "projects": [
         {
             "_id": 0,
             "name": "reuters-wider",
