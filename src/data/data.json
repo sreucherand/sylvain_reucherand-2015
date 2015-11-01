@@ -2,23 +2,23 @@
     "meta": {
         "title": "Sylvain Reucherand - Interactive Developer",
         "keywords": "sylvain, reucherand, interactive, developer, front",
-        "description": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer based in Paris – France.",
+        "description": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer based in Copenhagen – Denmark.",
         "url": "http://sylvainreucherand.fr",
         "image": "http://sylvainreucherand.fr/static/media/share.jpg",
         "twitter": "@sreucherand"
     },
     "about": {
-        "open": "I'm Sylvain Reucherand,<br>an interactive developer<br>looking for a job in<br>Copenhagen.",
-        "title": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer based in Paris – France.",
+        "open": "I'm Sylvain Reucherand,<br>an interactive developer<br>based in Copenhagen – Denmark.",
+        "title": "Hello, I'm Sylvain Reucherand, a 22 years old interactive developer based in Copenhagen – Denmark.",
         "paragraphs": [
             {
-                "text": "I'm freshly graduated from Gobelins, l'École de l'Image, in Paris – France. <strong>I'm currently looking for a job in Copenhagen.</strong> I always try to bring something different, unique on projects I work on, enhance navigation experience using UI animations and motion design applied to development. I keep attention to details."
+                "text": "I'm freshly graduated from <a href=\"http://www.gobelins.fr/\">Gobelins, l'École de l'Image</a>, in Paris – France. I'm currently working at <a href=\"http://e-types.com/\">e-Types</a> in Copenhagen – Denmark, as an interactive developer. I always try to bring something different, unique on projects I work on, enhance navigation experience using UI animations and motion design applied to development. I keep attention to details."
             },
             {
-                "text": "I work mostly with javascript, object-oriented programming, modular approach and reusable code. You can check some of my work on my GitHub and my experiments on CodePen. Let's keep in touch!"
+                "text": "I work mostly with javascript, object-oriented programming, modular approach and reusable code. Let's keep in touch!"
             },
             {
-                "text": "My portfolio has been designed by <a href=\"http://iamjulie.cool\">Julie Muckensturm</a>. Thank you, you are amazing!"
+                "text": "My portfolio has been designed by <a href=\"http://iamjulie.cool/\">Julie Muckensturm</a>. Thank you, you are amazing!"
             }
         ]
     },
