@@ -63,7 +63,7 @@ class App {
 
 }
 
-window.onload = (function () {
+on(document, 'DOMContentLoaded', () => {
     new App()
 
     FastClick.attach(document.body)
