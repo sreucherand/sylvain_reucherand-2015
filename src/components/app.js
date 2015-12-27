@@ -17,6 +17,7 @@ import select from 'dom-select'
 import FastClick from 'FastClick'
 import MobileDetect from 'mobile-detect'
 import nprogress from 'nprogress'
+import on from 'dom-event'
 import Promise from 'bluebird'
 
 class App {
